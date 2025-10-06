@@ -1,4 +1,5 @@
 #include <iostream>
+//这是一个缺陷文件
 using namespace std;
 int main() {
 	for(;;){
@@ -55,3 +56,4 @@ int main() {
 	}
 	return 0;
 }
+

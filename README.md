@@ -1,2 +1,2 @@
 # program
-My comprehend of program contest.
+My first file in github.

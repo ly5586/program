@@ -1,0 +1,64 @@
+
+/*题目描述 
+小红喜欢 1，小紫喜欢 2，小彩喜欢 3。
+她们定义一个字符串是好字符串，当且仅当字符串中同时存在 
+1,2,3且数量相同。
+现在有一个仅由 1,2,3组成的长为 𝑛的字符串，小彩想知道，这个字符串有多少子串是好字符串？
+
+【名词解释】
+子串：从原字符串中，连续的选择一段字符（可以全选、可以不选）得到的新字符串。
+输入描述:
+第一行输入一个整数 
+𝑛(1≦𝑛≦2000)。
+第二行输入一个字符串。
+输出描述:
+输出一个整数，代表好字符串的数量。
+示例1
+输入
+6
+123321
+输出
+3
+说明
+三个好字符串为 
+123,321,123321。*/
+#include<iostream>
+#include<cstdio>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int a[n]={0};
+    char numb[n];
+   for(int i=0;i<n;i++){
+    cin>>numb[i];
+       numb[i]=numb[i]-'0';
+   }
+    for(int i=0;i<n;i++){
+        a[i]=numb[i];
+       } 
+    int res=0;
+//o(n3)的复杂度，可能超时
+    for(int j=0;j<n;j++){
+        for(int k=1;k<n-j;k++){
+             int fir=0,twi=0,thc=0;
+            for(int l=0;l<k;l++){
+                if(a[j+l]==1){
+                    fir++;
+           
+                }else if(a[j+l]==2){
+                    twi++;
+             
+                }else if(a[j+l]==3){
+                    thc++;
+                }
+                if((fir==twi)&&(twi==thc)&&(fir==thc)){
+                    res++;
+                }
+            }
+             
+        }
+    }
+    cout<<res;
+    return 0;
+}

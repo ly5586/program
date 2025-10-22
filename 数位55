@@ -1,0 +1,40 @@
+题目描述 
+求出a到b之间有多少个数数位之和为5的倍数
+输入描述:
+输入一行包含两个整数x,y (0≤x,y≤1000000)
+输出描述:
+输出一个整数
+示例1
+输入
+10 20
+输出
+2
+说明
+14和19的数位和为5和10，符合条件
+
+#include<iostream>
+using namespace std;
+int main(){
+    int x,y;
+    cin>>x>>y;
+    int res=0;
+    for(int i=x;i<=y;i++){
+        int a[10];
+        int l=0;
+        int m=i;
+      for(int j=0;m!=0;j++){
+          a[j]=m%10;
+          m/=10;
+          l++;
+      }
+        int num=0;
+      for(int k=0;k<l;k++){
+            num+=a[k];
+        }
+        if(num%5==0){
+            res++;
+        }
+      
+    }
+    cout<<res;
+}
